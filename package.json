@@ -13,7 +13,7 @@
     "nodemon": "^2.0.7"
   },
   "scripts": {
-    "start": "nodemon"
+    "start": "node app.js"
     
   },
   "author": "Shaji",
