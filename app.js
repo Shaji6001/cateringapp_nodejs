@@ -11,7 +11,7 @@ var apps=express();
 apps.use(bodyParser.json());
 apps.use(bodyParser.urlencoded({extended:true}));
 
-mongoose.connect("mongodb+srv://shaji:ponnu123@cluster1.u2cuq.mongodb.net/messdb?retryWrites=true&w=majority",{ useNewUrlParser: true},{ useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://shaji:ponnu123@cluster1.u2cuq.mongodb.net/messdb?retryWrites=true&w=majority")
 
 
 apps.post('/adduser',async (req,res)=>{
@@ -25,6 +25,7 @@ try
 }
 catch(error){res.status(500).send(error)}
 })
+
 
 apps.get('/viewall',async(req,res)=>{
     try
@@ -79,6 +80,6 @@ apps.get('/viewall',async(req,res)=>{
                 catch(error){res.status(500).send(error)}
                 })     
 
-apps.listen(process.env.PORT || 3000,{ useNewUrlParser: true},function(){
+apps.listen(process.env.PORT || 3000,{ useNewUrlParser: true},{ useUnifiedTopology: true },function(){
     console.log("Server running fine!!!")
 })
